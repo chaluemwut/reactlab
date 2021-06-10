@@ -1,12 +1,12 @@
 import { createStore } from 'redux'
 
 
-function manageReducer(state = { value: 0 }, action) {
+function manageReducer(state, action) {
     switch (action.type) {
         case 'aa':
-            return { value: state.value + 1 }
+            return { value: 10 }
         case 'bb':
-            return { value: state.value - 1 }
+            return { value: 20 }
     }
 }
 
