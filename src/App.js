@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react'
+import Welcome1 from './Welcome1'
+import Welcome2 from './Welcome2'
+import { Subject } from 'rxjs'
+import Welcome3 from './Welcome3'
+import Welcome4 from './Welcome4'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import { store } from './ReduxService'
+
+export default class MainApp extends Component {
+
+  componentDidMount() {
+    store.subscribe(() => {
+      // console.log('on main page...')
+      // console.log(store)
+      console.log(store.getState().value)
+    })
+  }
+
+  render() {
+    return <div>
+      <div>
+        <Welcome3 />
+      </div>
+
+      <div>
+        <Welcome4 />
+      </div>
     </div>
-  );
+  }
 }
-
-export default App;
